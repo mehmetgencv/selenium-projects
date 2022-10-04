@@ -2,6 +2,9 @@
 __pycache__/
 *.py[cod]
 *$py.class
+images/*
+drivers/*
+.idea/
 
 # C extensions
 *.so
