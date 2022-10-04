@@ -1,0 +1,3 @@
+selenium
+wget
+python-dotenv
