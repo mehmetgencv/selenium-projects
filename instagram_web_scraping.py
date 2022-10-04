@@ -4,10 +4,14 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-import time
 import os
 import wget
 from config import Config
+import argparse
+
+parser = argparse.ArgumentParser(description='')
+parser.add_argument('--keyword', required=True)
+args = vars(parser.parse_args())
 
 
 configs = Config()
@@ -35,7 +39,7 @@ not_now2 = WebDriverWait(driver, 10).until(
 # driver.get("https://www.instagram.com/explore/")
 search_box = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//input[@placeholder='Search']")))
 search_box.clear()
-keyword = "#elephant"
+keyword = args.get("keyword")
 search_box.send_keys(keyword)
 search_box.send_keys(Keys.ENTER)
 search_box.send_keys(Keys.ENTER)
